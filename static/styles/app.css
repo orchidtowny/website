@@ -1,0 +1,47 @@
+@import "../../src/fonts.css";
+
+:root {
+  color-scheme: light dark;
+
+  color: var(--tx-2);
+  font-size: 0.95rem;
+
+  --bg-1: #242329;
+  --bg-2: #1b1a1f;
+  --bg-3: #0c0b0e;
+
+  --bg-1-50: #24232950;
+  --bg-2-50: #1b1a1f50;
+  --bg-3-50: #0c0b0e50;
+
+  --bg-1-99: #24232999;
+  --bg-2-99: #1b1a1f99;
+  --bg-3-99: #0c0b0e99;
+
+  --tx-1: #ffffff;
+  --tx-2: #d3d4d4;
+  --tx-3: #a8afaf;
+
+  --orchid: #da70d6;
+  --orchid-50: #da70d650;
+  --orchid-25: #da70d625;
+}
+
+html, body, header, footer, span, p, a, button, input {
+  font-family: Inter, sans-serif;
+  font-feature-settings: 'cv05', 'cv08';
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-1);
+}
+
+span, p, a {
+  vertical-align: middle;
+}
