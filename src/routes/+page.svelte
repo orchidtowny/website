@@ -4,13 +4,18 @@ import Card from "../lib/Card.svelte";
 import VoteCard from "../lib/VoteCard.svelte";
 import Button from "../lib/Button.svelte";
 import openLink from "../util/openLink.js";
+import HomeImage from "../lib/HomeImage.svelte";
 
-const voteSites = []
+import staff from '../lib/assets/staff.json' with { type: "json" }
+import supporters from '../lib/assets/supporters.json' with { type: "json" }
+import voteSites from '../lib/assets/voteSites.json' with { type: "json" }
+import StaffCard from "../lib/StaffCard.svelte";
+import SupporterCard from "../lib/SupporterCard.svelte";
 
 function openAllVoteSites() { for (const site of voteSites) { openLink(site) } }
 </script>
 
-<div class="homeImage"></div>
+<HomeImage />
 
 <div class="content">
     <div class="inner">
@@ -63,21 +68,31 @@ function openAllVoteSites() { for (const site of voteSites) { openLink(site) } }
                 <p>Currently, voting is unavailable.</p>
             {/if}
         </CardContainer>
+
+        {#if staff.length > 0}
+            <h2 id="vote">Staff</h2>
+            <CardContainer>
+                {#each staff as staffMember}
+                    <StaffCard name={staffMember.name} uuid={staffMember.uuid} rank={staffMember.rank} />
+                {/each}
+            </CardContainer>
+        {/if}
+
+        {#if supporters.length > 0}
+            <h2 id="vote">Supporters</h2>
+            <CardContainer>
+                {#each supporters as supporter}
+                    <SupporterCard name={supporter.name} uuid={supporter.uuid} />
+                {/each}
+            </CardContainer>
+            <p class="thanks">Thank you so much for supporting our server!</p>
+        {/if}
     </div>
 </div>
 
 <style>
-    .homeImage {
-        height: 500px;
-        width: 100%;
-        background-image: url("/img/orchid_spawn_pillars.png");
-        background-size: cover;
-        background-position: center center;
-        margin-top: -60px;
-    }
-
     .content {
-        margin: 45px 0 45px 0;
+        margin: 35px 0 35px 0;
 
         .inner {
             display: flex;
@@ -86,11 +101,12 @@ function openAllVoteSites() { for (const site of voteSites) { openLink(site) } }
 
             h2 {
                 font-family: Commissioner, sans-serif;
+                margin: 35px 0 35px;
             }
         }
     }
 
-    .openAll {
-        margin-top: 15px;
+    .thanks, .openAll {
+        margin-top: 35px;
     }
 </style>

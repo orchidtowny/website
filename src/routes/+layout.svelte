@@ -74,7 +74,7 @@ import Wordmark from "../lib/Wordmark.svelte";
         width: 100%;
     }
 
-    header, footer, .content {
+    header, footer {
         display: flex;
         justify-content: center;
         box-sizing: border-box;

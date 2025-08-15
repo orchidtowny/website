@@ -19,6 +19,7 @@
             <h3>{header}</h3>
         {/if}
     </div>
+    <slot></slot>
     {#if body !== undefined}
         <p>{body}</p>
     {/if}
