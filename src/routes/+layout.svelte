@@ -8,8 +8,9 @@ import Wordmark from "../lib/Wordmark.svelte";
             <Wordmark />
             <div class="links">
                 <a href="/#vote">Vote</a>
-                <a href="https://store.orchidmc.org">Store</a>
+                <a href="https://store.orchidmc.org">Support</a>
                 <a href="https://discord.orchidmc.org">Discord</a>
+                <a href="https://github.com/orchidtowny">Github</a>
             </div>
         </div>
     </header>
@@ -36,11 +37,18 @@ import Wordmark from "../lib/Wordmark.svelte";
         backdrop-filter: blur(10px);
     }
 
+    header .inner {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
     header .inner .links {
+        float: right;
         display: flex;
         align-items: center;
         gap: 10px;
-        margin-left: 20px;
+        margin-left: auto;
 
         a {
             color: var(--tx-2);

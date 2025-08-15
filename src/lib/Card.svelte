@@ -13,7 +13,7 @@
 <div class="card" onclick={() => click()} {tabindex} role={(tabindex > -1) ? `link` : `div`}>
     <div class="header">
         {#if img !== undefined}
-            <img src={img} alt={imgAlt} />
+            <img src={img} alt={imgAlt} title={imgAlt} />
         {/if}
         {#if header !== undefined}
             <h3>{header}</h3>
@@ -42,6 +42,7 @@
                 height: 40px;
                 border-radius: 8px;
                 border: 1px solid var(--bg-3-50);
+                background-color: var(--bg-2-50);
             }
 
             h3 {
