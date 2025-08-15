@@ -2,28 +2,25 @@ name: Deploy
 
 on:
   push:
-    branches: 'main'
+    branches: [ 'main' ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout
-
+        uses: actions/checkout@v4
       - name: Install pnpm
         run: npm install -g pnpm
-
       - name: Install dependencies
         run: pnpm i
-
       - name: Build
         run: pnpm build
-
       - name: Upload
-        uses: actions/upload-pages-artifact
+        uses: actions/upload-pages-artifact@v3
         with:
           path: build/
+
   deploy:
     environment:
       name: github-pages
