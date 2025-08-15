@@ -25,6 +25,10 @@
   --orchid: #da70d6;
   --orchid-50: #da70d650;
   --orchid-25: #da70d625;
+
+  --funky-effect:
+          inset 0 -0.1rem 2.5px #00000020, inset 0 0.035rem 1px #ffffff05,
+          inset 0 0.055rem 2.5px #ffffff05;
 }
 
 html, body, header, footer, span, p, a, button, input {
@@ -44,4 +48,8 @@ body {
 
 span, p, a {
   vertical-align: middle;
+}
+
+img {
+  overflow: clip;
 }
