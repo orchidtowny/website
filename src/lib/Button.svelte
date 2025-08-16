@@ -27,5 +27,6 @@
 
     .button:hover {
         transform: scale(0.95);
+        cursor: pointer;
     }
 </style>

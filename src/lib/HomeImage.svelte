@@ -9,7 +9,17 @@ import Button from "./Button.svelte";
             <p>We're a Minecraft community dedicated to creating a fun, custom, and welcoming server for all.</p>
             <p>Below, you can see some of our features!</p>
             <div class="copyIp">
-                <Button action={() => { navigator.clipboard.writeText("play.orchidmc.org"); }}>Copy IP</Button>
+                <Button
+                    action={() => {
+                        navigator.clipboard.writeText("play.orchidmc.org");
+                        const style = document.createElement("style");
+                        style.textContent = ".button { background-color: var(--button-clicked) !important; color: var(--bg-3) !important; }";
+                        document.head.append(style);
+
+                        document.getElementsByClassName("button")[0].textContent = "Copied!";
+                    }}>
+                    Copy IP
+                </Button>
                 <span>play.orchidmc.org</span>
             </div>
         </div>
