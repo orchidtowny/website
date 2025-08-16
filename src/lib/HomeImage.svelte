@@ -1,5 +1,7 @@
 <script>
 import Button from "./Button.svelte";
+
+let buttonType = $state("")
 </script>
 
 <div class="homeImage">
@@ -9,16 +11,13 @@ import Button from "./Button.svelte";
             <p>We're a Minecraft community dedicated to creating a fun, custom, and welcoming server for all.</p>
             <p>Below, you can see some of our features!</p>
             <div class="copyIp">
-                <Button
+                <Button type={buttonType}
                     action={() => {
                         navigator.clipboard.writeText("play.orchidmc.org");
-                        const style = document.createElement("style");
-                        style.textContent = ".button { background-color: var(--button-clicked) !important; color: var(--bg-3) !important; }";
-                        document.head.append(style);
-
-                        document.getElementsByClassName("button")[0].textContent = "Copied!";
+                        buttonType = "success";
+                        setTimeout(() => { buttonType = "" }, 10000)
                     }}>
-                    Copy IP
+                    {#if buttonType.length > 1}Copied!{:else}Copy IP{/if}
                 </Button>
                 <span>play.orchidmc.org</span>
             </div>

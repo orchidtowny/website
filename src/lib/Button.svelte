@@ -25,6 +25,11 @@
         transition: transform 0.1s;
     }
 
+    .button.success {
+        color: var(--bg-3);
+        background-color: var(--success);
+    }
+
     .button:hover {
         transform: scale(0.95);
         cursor: pointer;
