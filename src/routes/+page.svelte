@@ -59,18 +59,18 @@ function openAllVoteSites() { for (const site of voteSites) { openLink(site) } }
                 {#each voteSites as voteSite}
                     <VoteCard link={voteSite} />
                 {/each}
-                <div class="openAll">
-                    <Button action={openAllVoteSites}>
-                        Open All
-                    </Button>
-                </div>
             {:else}
                 <p>Currently, voting is unavailable.</p>
             {/if}
         </CardContainer>
+        <div class="openAll">
+            <Button action={openAllVoteSites}>
+                Open All
+            </Button>
+        </div>
 
         {#if staff.length > 0}
-            <h2 id="vote">Staff</h2>
+            <h2>Staff</h2>
             <CardContainer>
                 {#each staff as staffMember}
                     <StaffCard name={staffMember.name} uuid={staffMember.uuid} rank={staffMember.rank} />
@@ -79,7 +79,7 @@ function openAllVoteSites() { for (const site of voteSites) { openLink(site) } }
         {/if}
 
         {#if supporters.length > 0}
-            <h2 id="vote">Supporters</h2>
+            <h2>Supporters</h2>
             <CardContainer>
                 {#each supporters as supporter}
                     <SupporterCard name={supporter.name} uuid={supporter.uuid} />

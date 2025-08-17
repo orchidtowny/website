@@ -1,5 +1,6 @@
 <script>
     import Card from "./Card.svelte";
+    import openLink from "../util/openLink.js";
 
     let {
         link = undefined,
@@ -8,7 +9,7 @@
     const url = new URL(link)
 
     function click() {
-
+        openLink(link)
     }
 </script>
 
