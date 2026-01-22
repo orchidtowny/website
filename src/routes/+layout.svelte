@@ -10,7 +10,6 @@ import Wordmark from "../lib/Wordmark.svelte";
                 <a href="/#vote">Vote</a>
                 <a href="https://store.orchidmc.org">Support</a>
                 <a href="https://discord.orchidmc.org">Discord</a>
-                <a href="https://github.com/orchidtowny">Github</a>
             </div>
         </div>
     </header>
@@ -19,7 +18,7 @@ import Wordmark from "../lib/Wordmark.svelte";
 
     <footer>
         <div class="inner">
-            <p>&copy; 2023-2025 Orchid Development</p>
+            <p>&copy; 2022-2026 Orchid Development &bull; play.orchidmc.org</p>
         </div>
     </footer>
 </main>

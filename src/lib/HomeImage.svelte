@@ -8,8 +8,7 @@ let buttonType = $state("")
     <div class="welcome">
         <div class="inner">
             <b>Welcome to Orchid!</b>
-            <p>We're a Minecraft community dedicated to creating a fun, custom, and welcoming server for all.</p>
-            <p>Below, you can see some of our features!</p>
+            <p>We're a small Minecraft community committed to creating a fun, cozy, and welcoming server for all.</p>
             <div class="copyIp">
                 <Button type={buttonType}
                     action={() => {
