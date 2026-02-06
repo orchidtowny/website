@@ -1,18 +1,26 @@
 <script>
     let {
         type = undefined,
+        to = undefined,
         action = () => {}
     } = $props()
 </script>
 
-<button class={"button" + (type !== undefined ? " "+type : "")} onclick={() => action()}>
-    <slot />
-</button>
+{#if to}
+    <a class={"button" + (type !== undefined ? " "+type : "")} href={to}>
+        <slot />
+    </a>
+{:else}
+    <button class={"button" + (type !== undefined ? " "+type : "")} onclick={() => action()}>
+        <slot />
+    </button>
+{/if}
 
 <style>
     .button {
         display: flex;
         padding: 8px 14px;
+        width: fit-content;
 
         color: var(--tx-2);
         background-color: var(--bg-2);
@@ -23,6 +31,7 @@
         box-shadow: var(--funky-effect);
 
         transition: transform 0.1s;
+        text-decoration: none;
     }
 
     .button.success {

@@ -1,1 +1,8 @@
-<h1>Something went wrong.</h1>
+<script>
+</script>
+
+<div class="pageContent">
+    <div class="inner">
+        <h1>Something went wrong.</h1>
+    </div>
+</div>

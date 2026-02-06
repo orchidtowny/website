@@ -11,13 +11,48 @@
     import voteSites from '../lib/assets/voteSites.json' with { type: "json" }
     import StaffCard from "../lib/StaffCard.svelte";
     import SupporterCard from "../lib/SupporterCard.svelte";
+    import Town from "../lib/Town.svelte";
+
+    let loadingTowns = $state(true)
+
+    const endpoint = "https://towny.orchidmc.org/api/towns"
+    let towns = $state([])
+
+    let indexPush = 0
+    let visibleTowns = $state([])
+
+    window.fetch(endpoint).then(async (r) => {
+        if (!r.ok) return;
+
+        towns = (await r.json())
+            .sort((a, b) => a.residents - b.residents)
+            .sort((a, b) => a.size - b.size)
+            .reverse()
+
+        fetchMoreTowns()
+
+        loadingTowns = false
+    })
+
+    function fetchMoreTowns() {
+        let step = 4;
+
+        if ((indexPush + step) > towns.length)
+            step = towns.length - indexPush;
+
+        for (let i = 0; i < step; i++) {
+            visibleTowns.push(towns[i + indexPush])
+        }
+
+        indexPush += step
+    }
 
     function openAllVoteSites() { for (const site of voteSites) { openLink(site) } }
 </script>
 
 <HomeImage />
 
-<div class="content">
+<div class="pageContent">
     <div class="inner">
         <h2 id="about">Features</h2>
         <CardContainer>
@@ -59,6 +94,29 @@
             </Button>
         </div>
 
+        <h2 id="towns">Towns</h2>
+        <CardContainer>
+            <div class="status">
+                {#if loadingTowns}
+                    <span>Loading...</span>
+                {:else}
+                    <span>There are {towns.length} towns, {visibleTowns.length} shown</span>
+                {/if}
+            </div>
+
+            <CardContainer>
+                {#each visibleTowns as town}
+                    <Town {town} />
+                {/each}
+            </CardContainer>
+
+            {#if visibleTowns.length < towns.length}
+                <Button action={fetchMoreTowns}>
+                    Load More...
+                </Button>
+            {/if}
+        </CardContainer>
+
         {#if staff.length > 0}
             <h2>Staff Team</h2>
             <CardContainer>
@@ -81,22 +139,44 @@
 </div>
 
 <style>
-    .content {
-        margin: 35px 0 35px 0;
+    .townStatus {
+        margin-bottom: 10px;
+    }
 
-        .inner {
+    .town {
+        display: flex;
+        flex-direction: column;
+        max-width: 275px;
+        margin: 0 25px;
+        width: 100%;
+        gap: 10px;
+
+        h2, p {
+            margin: 0;
+        }
+
+        h2 {
+            b { font-weight: bold; }
+        }
+
+        .mayor {
             display: flex;
-            flex-direction: column;
             align-items: center;
+            gap: 10px;
 
-            h2 {
-                font-family: Commissioner, sans-serif;
-                margin: 35px 0 35px;
+            .playerHead {
+                height: 20px;
+                width: 20px;
             }
         }
     }
 
     .thanks, .openAll {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
         margin-top: 35px;
     }
 </style>

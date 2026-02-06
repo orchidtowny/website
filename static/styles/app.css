@@ -55,3 +55,18 @@ span, p, a {
 img {
   overflow: clip;
 }
+
+.pageContent {
+  margin: 35px 0 35px 0;
+
+  .inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h2 {
+      font-family: Commissioner, sans-serif;
+      margin: 35px 0 35px;
+    }
+  }
+}
