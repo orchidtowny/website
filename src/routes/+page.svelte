@@ -11,9 +11,11 @@
     import voteSites from '../lib/assets/voteSites.json' with { type: "json" }
     import StaffCard from "../lib/StaffCard.svelte";
     import SupporterCard from "../lib/SupporterCard.svelte";
-    import Town from "../lib/Town.svelte";
+    //import Town from "../lib/Town.svelte";
 
     let loadingTowns = $state(true)
+
+    /*      No more towny for now ...
 
     const endpoint = "https://towny.orchidmc.org/api/towns"
     let towns = $state([])
@@ -46,6 +48,7 @@
 
         indexPush += step
     }
+    */
 
     function openAllVoteSites() { for (const site of voteSites) { openLink(site) } }
 </script>
@@ -94,6 +97,7 @@
             </Button>
         </div>
 
+        <!--
         <h2 id="towns">Towns</h2>
         <CardContainer>
             <div class="status">
@@ -116,6 +120,7 @@
                 </Button>
             {/if}
         </CardContainer>
+        -->
 
         {#if staff.length > 0}
             <h2>Staff Team</h2>

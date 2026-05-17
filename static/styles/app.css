@@ -48,10 +48,6 @@ body {
   background-color: var(--bg-1);
 }
 
-span, p, a {
-  vertical-align: middle;
-}
-
 img {
   overflow: clip;
 }

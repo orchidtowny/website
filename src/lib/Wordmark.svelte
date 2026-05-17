@@ -2,7 +2,7 @@
 </script>
 
 <div class="wordmark">
-    <img src="logo.png" alt="The Orchid logo, an O with an orchid inside of it" />
+    <img src="/logo.png" alt="The Orchid logo, an O with an orchid inside of it" />
     <span>Orchid</span>
 </div>
 

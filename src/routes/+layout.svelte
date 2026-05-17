@@ -1,5 +1,6 @@
 <script>
 import Wordmark from "../lib/Wordmark.svelte";
+let { children } = $props();
 </script>
 
 <main>
@@ -14,7 +15,7 @@ import Wordmark from "../lib/Wordmark.svelte";
         </div>
     </header>
 
-    <slot></slot>
+    {@render children()}
 
     <footer>
         <div class="inner">
