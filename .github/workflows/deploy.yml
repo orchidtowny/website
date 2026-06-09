@@ -15,9 +15,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Install pnpm
-        run: npm install -g pnpm
+        run: npm install -g pnpm@9
       - name: Install dependencies
-        run: pnpm approve-builds esbuild && pnpm approve-builds svelte-preprocess && pnpm i
+        run: pnpm i
       - name: Build
         run: pnpm build
       - name: Upload
