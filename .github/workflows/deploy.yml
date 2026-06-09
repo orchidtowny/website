@@ -17,7 +17,7 @@ jobs:
       - name: Install pnpm
         run: npm install -g pnpm
       - name: Install dependencies
-        run: pnpm i
+        run: pnpm approve-builds esbuild && pnpm approve-builds svelte-preprocess && pnpm i
       - name: Build
         run: pnpm build
       - name: Upload
